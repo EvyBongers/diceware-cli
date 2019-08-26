@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "gitlab.com/EvyBongers/go/cmd/diceware",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_sethvargo_go_diceware//diceware:go_default_library"],
+)
+
+go_binary(
+    name = "diceware",
+    embed = [":go_default_library"],
+    pure = "on",
+    visibility = ["//visibility:public"],
+)
