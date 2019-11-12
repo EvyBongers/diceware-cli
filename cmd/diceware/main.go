@@ -3,23 +3,30 @@ package main
 import (
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
-	"strings"
 
 	"github.com/sethvargo/go-diceware/diceware"
 )
 
 func main() {
+	delimiters := "!#$%&()*+,-./:;<=>?@[\\]^_{|}"
 	numberOfWords := flag.Int("number", 0, "Number of words to generate")
-	delimiter := flag.String("delimiter", "", "Character to separate the words (may be left out for none)")
 	flag.Parse()
 
-	// Generate 6 words using the diceware algorithm.
+	// Generate requested number of words using the diceware algorithm.
 	list, err := diceware.Generate(*numberOfWords)
 	if err != nil {
 		fmt.Printf("%v", err)
 		os.Exit(1)
 	}
 
-	fmt.Println(strings.Join(list, *delimiter))
+	for idx, word := range list {
+		if idx > 0 {
+			// Pick a delimiter from the list above
+			fmt.Print(string(delimiters[rand.Intn(len(delimiters))]))
+		}
+		fmt.Print(word)
+	}
+	fmt.Println()
 }
