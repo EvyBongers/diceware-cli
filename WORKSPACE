@@ -21,6 +21,14 @@ http_archive(
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
+go_repository(
+    name = "com_github_sethvargo_go_diceware",
+    importpath = "github.com/sethvargo/go-diceware",
+    sha256 = "ef59fc7c7ecbb21a92eee0b260bb224aaaba115c6fb949592fd2f26b07d91cfc",
+    strip_prefix = "go-diceware-0.1.1",
+    urls = ["https://github.com/sethvargo/go-diceware/archive/0.1.1.tar.gz"],
+)
+
 go_rules_dependencies()
 
 go_register_toolchains(version = "1.17.2")
@@ -42,11 +50,3 @@ load(
 container_repositories()
 
 load("@io_bazel_rules_docker//container:container.bzl", "container_pull")
-
-go_repository(
-    name = "com_github_sethvargo_go_diceware",
-    importpath = "github.com/sethvargo/go-diceware",
-    sha256 = "ef59fc7c7ecbb21a92eee0b260bb224aaaba115c6fb949592fd2f26b07d91cfc",
-    strip_prefix = "go-diceware-0.1.1",
-    urls = ["https://github.com/sethvargo/go-diceware/archive/0.1.1.tar.gz"],
-)
