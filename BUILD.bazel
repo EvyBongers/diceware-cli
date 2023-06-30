@@ -1,6 +1,6 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix gitlab.com/EvyBongers/go
+# gazelle:prefix github.com/EvyBongers/diceware-cli
 gazelle(
     name = "gazelle",
 )
