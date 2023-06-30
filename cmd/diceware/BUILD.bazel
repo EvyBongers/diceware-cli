@@ -3,9 +3,9 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 go_library(
     name = "diceware_lib",
     srcs = ["main.go"],
-    importpath = "gitlab.com/EvyBongers/go/cmd/diceware",
+    importpath = "github.com/EvyBongers/diceware-cli/cmd/diceware",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_sethvargo_go_diceware//diceware"],
+    deps = ["@com_github_sethvargo_go_diceware//diceware:go_default_library"],
 )
 
 go_binary(
