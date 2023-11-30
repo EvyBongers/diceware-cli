@@ -5,7 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/EvyBongers/diceware-cli/cmd/diceware",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_sethvargo_go_diceware//diceware:go_default_library"],
+    deps = ["@com_github_sethvargo_go_diceware//diceware"],
 )
 
 go_binary(

@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	delimiters := "!#$%&()*+,-./:;<=>?@[\\]^_{|}"
+	delimiters := "!#$%&()*+,-./:;<=>?@[\\]^_{|}0123456789"
 	numberOfWords := flag.Int("number", 0, "Number of words to generate")
 	flag.Parse()
 
